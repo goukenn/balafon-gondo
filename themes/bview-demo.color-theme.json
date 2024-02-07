@@ -1,0 +1,70 @@
+{
+    "tokenColors":[
+        {
+            "scope": "meta.mustache.expression.demo.bview",
+            "settings": {
+                "foreground": "#FF0000"
+            }
+        },
+        {
+            "scope": "constant.selector.tagname.demo.bview",
+            "settings": {
+                "foreground": "#17a346"
+            }
+        },
+        {
+            "scope": "constant.selector.tagname.id.demo.bview" ,
+            "settings": {
+                "foreground": "#1782a3"
+            }
+        }, 
+        {
+            "scope": "constant.selector.tagname.class.demo.bview" ,
+            "settings": {
+                "foreground": "#e45015"
+            }
+        }, 
+        {
+            "scope": "constant.selector.tagname.name.demo.bview" ,
+            "settings": {
+                "foreground": "#2a3575"
+            }
+        } ,
+        {
+            "scope": "comment.block.demo.bview" ,
+            "settings": {
+                "foreground": "#2a7530"
+            }
+        } ,
+        {
+            "scope": "parameter.attribute.active.demo.bview, conditional.operator.demo.bview, constant.selector.tagname.active.attrib.demo.bview" ,
+            "settings": {
+                "foreground": "#30d0e2"
+            }
+        },
+        {
+            "scope": "conditional.expression.demo.bview", 
+            "settings": {
+                "foreground": "#cae230"
+            }
+        },
+        {
+            "scope": "string.single.quoted.demo.bview, string.quoted.demo.bview, string.quoted.with.mustache.demo.bview",
+            "settings": {
+                "foreground": "#822701"
+            }
+        },
+        {
+            "scope": "constant.litteral.expression.demo.bview, meta.tag.content.expression.demo.bview", 
+            "settings": {
+                "foreground": "#b51eb5"
+            }
+        } ,
+        {
+            "scope": "operator, punctuation.start.content.expression.demo.bview, punctuation.operator.demo.bview", 
+            "settings": {
+                "foreground": "#895609"
+            }
+        } 
+    ]
+}

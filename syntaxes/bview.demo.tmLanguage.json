@@ -1,0 +1,283 @@
+{
+    "scopeName": "source.demo.bview",
+    "patterns": [
+
+       
+        {
+            "include": "#comment-block"
+        },
+        {
+            "include": "#section-block"
+        },
+        {
+            "include": "#selector-tag"
+        }
+       
+    ],
+    "repository": {
+        "section-block": {
+            "begin": "([^\\{]+)\\s*\\{(?:($|\\s*))",
+            "end": "\\}(\\s*|[^\\}\\-])",
+            "name": "meta.section.expression.demo.bview",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#selector-tag"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment-block"
+                },
+                {
+                    "include": "#tag-content"
+                },
+                {
+                    "include": "#conditional-expression"
+                },
+                {
+                    "include": "#mustache-expression"
+                },
+                {
+                    "include": "#tag-append-single"
+                },
+                {
+                    "include": "#active-attributes"
+                },
+                {
+                    "include": "#section-block"
+                }
+            ]
+        },
+        "mustache-expression": {
+            "begin": "(^|\\s*)\\{\\{",
+            "end": "\\}\\}",
+            "name": "meta.mustache.expression.demo.bview"
+        },
+        "comment-block": {
+            "name": "comment.block.demo.bview",
+            "begin": "\\/\\*",
+            "end": "\\*\\/"
+        },
+        "tagname": {
+            "match": "(?i)([a-z_]+[a-z0-9:\\-_]*)",
+            "comment": "selector tagname",
+            "name": "constant.selector.tagname.demo.bview"
+        },
+        "tag-class": {
+            "match": "(?i)\\.((-+)?[a-z_]+((\\\\:)?[a-z0-9\\-_]+)*)",
+            "comment": "selector tagname class",
+            "name": "constant.selector.tagname.class.demo.bview"
+        },
+        "tag-name": {
+            "match": "(?i)\\#([a-z_]+[a-z0-9\\-_]*)",
+            "comment": "selector tagname class. name value",
+            "name": "constant.selector.tagname.name.demo.bview"
+        },
+        "tag-id": {
+            "match": "(?i)\\%([a-z_]+[a-z0-9\\-_]*)",
+            "comment": "selector identifier. id attribute",
+            "name": "constant.selector.tagname.id.demo.bview"
+        },
+        "tag-glue": {
+            "match": "\\s*\\>\\s*",
+            "comment": "append tag",
+            "name": "operator.append.tagname.demo.bview"
+        },
+        "selector-tag": {
+            "name": "meta.tagname.selector.demo.bview",
+            "patterns": [
+                {
+                    "include": "#tagname"
+                },
+                {
+                    "include": "#tag-class"
+                },
+                {
+                    "include": "#tag-name"
+                },
+                {
+                    "include": "#tag-id"
+                },
+                {
+                    "include": "#tag-active-attrib"
+                },
+                {
+                    "include": "#tag-attrib"
+                },
+                {
+                    "include": "#tag-func"
+                },
+                {
+                    "include": "#tag-glue"
+                }
+            ]
+        },
+        "tag-active-attrib": {
+            "match": "(?i)\\!([a-z_]+[a-z0-9\\-_]*)",
+            "comment": "selector identifier. id attribute",
+            "name": "constant.selector.tagname.active.attrib.demo.bview"
+        },
+        "tag-append-single": {
+            "begin": "\\+ ",
+            "end": "$",
+            "name": "meta.append.single.node.demo.bview",
+            "patterns": [
+                {
+                    "include": "#selector-tag"
+                }
+            ]
+        },
+        "tag-content": {
+            "begin": "- ",
+            "end": "$",
+            "name": "meta.tag.content.expression.demo.bview",
+            "beginCaptures":{
+                "0":{
+                    "name":"punctuation.start.content.expression.demo.bview"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#string-with-mustache"
+                },
+                {
+                    "include": "#expression-constant"
+                }
+            ]
+        },
+        "active-attributes": {
+            "name": "parameter.attribute.active.demo.bview",
+            "match": "(^|\\)|\\])?\\s*(@[a-zA-Z_]([a-zA-Z_:0-9\\-]+)?)(\\s+@[a-zA-Z_]([a-zA-Z_:0-9\\-]+)?)*\\s*$"
+        },
+        "expression-constant": {
+            "name": "constant.expression.demo.bview",
+            "patterns": [
+                {
+                    "include": "#string-with-mustache"
+                },
+                {
+                    "include": "#litteral-constant-non-mustache"
+                },
+                {
+                    "include": "#mustache-expression"
+                }
+            ]
+        },
+        "conditional-expression": {
+            "begin": "(^|\\)|\\]|\\s*)?(?<exp>\\*if)\\s*(:)",
+            "end": "$",
+            "name": "condition.demo.bview",
+            "beginCaptures": {
+                "2": {
+                    "name": "conditional.operator.demo.bview"
+                },
+                "3": {
+                    "name": "punctuation.operator.demo.bview"
+                }
+            },
+            "patterns": [
+                {
+                    "name": "conditional.expression.demo.bview",
+                    "patterns": [
+                        {
+                            "include": "#litteral-constant-non-mustache"
+                        },
+                        {
+                            "include": "#mustache-expression"
+                        },
+                        {
+                            "include": "#mustache-content-expression"
+                        }
+                    ]
+                }
+            ]
+        },
+        "string": {
+            "patterns": [
+                {
+                    "include": "#single-quote-string"
+                },
+                {
+                    "include": "#double-quote-string"
+                }
+            ]
+        },
+        "string-with-mustache": {
+            "patterns": [
+                {
+                    "include": "#single-quote-with-mustache-string"
+                },
+                {
+                    "include": "#double-quote-with-mustache-string"
+                }
+            ]
+        },
+        "single-quote-string": {
+            "begin": "'",
+            "end": "'",
+            "name": "string.single.quoted.demo.bview",
+            "patterns": [
+                {
+                    "name": "constant.escaped.string",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "double-quote-with-mustache-string": {
+            "begin": "\"",
+            "end": "\"",
+            "name": "string.quoted.with.mustache.demo.bview",
+            "patterns": [
+                {
+                    "name": "constant.escaped.string",
+                    "match": "\\\\."
+                },
+                { "include":"#mustache-expression"}
+            ]
+        },
+        "single-quote-with-mustache-string": {
+            "begin": "'",
+            "end": "'",
+            "name": "string.single.quoted.demo.bview",
+            "patterns": [
+                {
+                    "name": "constant.escaped.string",
+                    "match": "\\\\."
+                },
+                { "include":"#mustache-expression"}
+            ]
+        },
+        "double-quote-string": {
+            "begin": "\"",
+            "end": "\"",
+            "name": "string.quoted.demo.bview",
+            "patterns": [
+                {
+                    "name": "constant.escaped.string",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "mustache-content-expression": {
+            "name": "constant.mustache.content.expression.demo.bview",
+            "patterns": [
+                {
+                    "match": "[^\\{]+",
+                    "name": "constant.concat.mustache.demo.bview"
+                },
+                {
+                    "include": "#mustache-expression"
+                }
+            ]
+        },
+        "litteral-constant-non-mustache": {
+            "comment": "litteral expression without mustache expression",
+            "name": "constant.litteral.expression.demo.bview",
+            "match": "[^\\{]+"
+        }
+    }
+}

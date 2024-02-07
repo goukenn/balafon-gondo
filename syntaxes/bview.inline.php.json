@@ -1,0 +1,12 @@
+{
+    "scopeName":"inline.bview",
+    "injectionSelector":"L:source -comment -string",
+    "fileTypes":["php"],
+    "patterns":[
+        {
+            "begin":"\\<\\<\\<'bview'$",
+            "end":"bview\\b",
+            "name":"embed.inline.php.bview"
+        }
+    ]
+}

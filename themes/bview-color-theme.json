@@ -1,0 +1,67 @@
+{
+    "name":"bview inline default theme",
+    "type":"dark", 
+    "colors": {
+        "activityBar.background": "#ff0000"
+    },
+    "tokenColors":[ 
+        {
+            "scope": [
+                "single.line.comment.bview",
+                "comment.line.double-slash.php",
+                "comment.multiview.bview"],
+            "settings": {
+                "foreground": "#549117",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": ["string.quoted.double.bview", "string.quoted.single.bview"],
+            "settings": {
+                "foreground": "#d84025"
+            }
+        },
+        {
+            "scope": ["moustache.expressoin.bview","moustache.expression.begin.bview", "moustache.expression.end.bview"],
+            "settings": {
+                "foreground": "#c6d825"
+            }
+        },
+        {
+            "scope": ["tagname.bview"],
+            "settings": {
+                "foreground": "#259cd8"
+            }
+        },
+        {
+            "scope": ["line.add.node.bview"],
+            "settings": {
+                "foreground": "#944f32"
+            }
+        },
+        // {
+        //     "scope":"highlight.html.bview",
+        //     "settings": {
+        //         "foreground": "#00FFFF", 
+        //     }
+        // },
+        {
+            "scope":"start.highlight.html.marker.bview",
+            "settings": {
+                "foreground": "#FF0000", 
+            }
+        },
+        {
+            "scope":"end.highlight.html.marker.bview",
+            "settings": {
+                "foreground": "#FF0000", 
+            }
+        },
+        {
+            "scope":"func.name.bview",
+            "settings": {
+                "foreground": "#FF0000", 
+            }
+        }
+    ]
+}

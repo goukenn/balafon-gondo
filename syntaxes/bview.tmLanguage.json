@@ -1,0 +1,430 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "bview",
+	"patterns": [
+		{
+			"include": "#commenta"
+		},
+		{
+		"include": "#single-line-comment"
+		},
+		{
+			"begin": "\\\"",
+			"end":"\\\"",
+			"name":"string.quoted.double",
+			"patterns": [
+				{
+					"name":"escape.litteral.bview",
+					"match":"\\\\."
+				}
+			]
+		},
+		{
+			"name":"selector.expression.bview",
+			"begin": "\\b(.+)\\{",
+			"end":"\\}",
+			"beginCaptures": {
+				"0":{"name":"selector.section.start.bview"}
+			},
+			"endCaptures": {
+				"0":{"name":"selector.section.end.bview"}
+			}
+		}
+	],
+	"repository": {
+		"mark-html": {
+			"begin": "\\bhtml\\s*\\(",
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"name": "highlight.html.bview",
+			"patterns": [
+				{
+					"include": "text.html.basic"
+				}
+			]
+		},
+		"mark-css": {
+			"begin": "\\bcss\\s*\\(",
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"name": "highlight.css.bview",
+			"patterns": [
+				{
+					"include": "source.css"
+				}
+			]
+		},
+		"mark-gql": {
+			"name":"highlight.gql.bview",
+			"begin":"gql\\s*\\(",
+			"end":"\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"patterns": [
+				{"include": "source.graphql"}
+			]
+		},
+		"mark-jsx":{
+			"name":"highlight.jsx.bview",
+			"begin":"jsx\\s*\\(",
+			"end":"\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"patterns": [
+				{"include": "source.js.jsx"}
+			]
+		},
+		"mark-tsx":{
+			"name":"highlight.tsx.bview",
+			"begin":"tsx\\s*\\(",
+			"end":"\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"patterns": [
+				{"include": "source.tsx"}
+			]
+		},
+		"mark-vue":{
+			"name":"highlight.vue.bview",
+			"comment": "mark vue content SFC",
+			"begin":"vue\\s*\\(",
+			"end":"\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"patterns": [
+				{"include": "source.vue"}
+			]
+		},
+		"mark-js":{
+			"name":"highlight.js.bview",
+			"begin":"js\\s*\\(",
+			"end":"\\)",
+			"endCaptures": {
+				"0": {
+					"name": "func.name.end.bview"
+				}
+			},
+			"beginCaptures": {
+				"0": {
+					"name": "func.name.bview"
+				}
+			},
+			"patterns": [
+				{"include": "source.js"}
+			]
+		},
+		"commenta": {
+			"begin": "\\/\\*",
+			"end": "\\*\\/",
+			"name": "comment.multiview.bview"
+		},
+		"single-line-comment": {
+			"begin": "\\/\\/",
+			"end": "$",
+			"name": "comment.line.double-slash.php"
+		},
+		"class-identifier": {
+			"patterns": [
+				{
+					"name": "class.identifier.rule.bview",
+					"match": "([^\\s]|\\b)(\\.[a-zA-Z_][a-zA-Z\\_0-9]*)",
+					"captures": {
+						"2": {
+							"name": "class.identifier.bview"
+						}
+					}
+				}
+			]
+		},
+		"name-identifier": {
+			"patterns": [
+				{
+					"name": "name.identifier.rule.bview",
+					"match": "([^\\s]|\\b)(\\#[a-zA-Z\\_][a-zA-Z\\_0-9]*)",
+					"captures": {
+						"2": {
+							"name": "name.identifier.bview"
+						}
+					}
+				}
+			]
+		},
+		"active-attribute": {
+			"patterns": [
+				{
+					"name": "activate.attr.identifier.rule.bview",
+					"match": "([^\\s]|\\b)(\\@[a-zA-Z][a-zA-Z\\-0-9]*)",
+					"captures": {
+						"2": {
+							"name": "activate.attr.identifier.bview"
+						}
+					}
+				}
+			]
+		},
+		"tagdefinition": {
+			"patterns": [
+				{
+					"name": "tag.identifier.rule.bview",
+					"match": "\\b(a)(\\b|\\.)",
+					"captures": {
+						"1": {
+							"name": "tag.identifier.bview"
+						}
+					}
+				}
+			]
+		},
+		"line-litteral-constant": {
+			"begin": "- ",
+			"end": "$",
+			"name": "litteral.constant.bview",
+			"patterns": [
+				{
+					"include": "#quote-string"
+				},
+				{
+					"include": "#single-quote-string"
+				},
+				{
+					"include": "#moustache"
+				},
+				{
+					"include": "#mark-fn-support"
+				}
+			]
+		},
+		"mark-fn-support": {
+			"comment": "mark function call support",  
+			"name":"mark.function.support.bview",
+			"patterns": [
+				{
+					"include": "#mark-html"
+				},
+				{
+					"include": "#mark-css"
+				},
+				{
+					"include": "#mark-jsx"
+				},
+				{
+					"include": "#mark-js"
+				},
+				{
+					"include": "#mark-tsx"
+				},
+				{
+					"include": "#mark-gql"
+				},
+				{
+					"include": "#mark-vue"
+				},
+				{
+					"begin": "(local)\\s*\\(",
+					"end":"\\)",
+					"beginCaptures": {
+						"1":{"name":"func.name.bview"}
+					},
+					"endCaptures": {
+						"0":{"name":"func.name.end.bview"}
+					},
+					"name":"expression.in.func.bview"
+				}
+			]
+		},
+		"function-litteral": {
+			"name": "function.litteral.bview",
+			"begin": "\\b\\W\\(",
+			"end": ")$"
+		},
+		"quote-string": {
+			"name": "string.quoted.double.bview",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"match": "\\\\.",
+					"name": "string.quote.escaped.bview"
+				}
+			]
+		},
+		"single-quote-string": {
+			"name": "string.quoted.single.bview",
+			"begin": "\\'",
+			"end": "\\'",
+			"patterns": [
+				{
+					"match": "\\\\.",
+					"name": "string.quote.single.escaped.bview"
+				}
+			]
+		},
+		"moustache": {
+			"begin": "\\{\\{",
+			"end": "\\}\\}",
+			"beginCaptures": {
+				"0": {
+					"name": "moustache.expression.begin.bview"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "moustache.expression.end.bview"
+				}
+			},
+			"name": "moustache.expressoin.bview",
+			"patterns": [
+				{
+					"include": "quote-string"
+				},
+				{
+					"include": "#single-quote-string"
+				}
+			]
+		},
+		"line-add-node": {
+			"name": "line.add.node.bview",
+			"begin": "\\+ ",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#tag-identifier"
+				},
+				{
+					"include": "#class-identifier"
+				},
+				{
+					"include": "#name-identifier"
+				},
+				{
+					"include": "#active-attribute"
+				},
+				{
+					"include": "#node-operators"
+				},
+				{
+					"include": "#single-quote-string"
+				}
+			]
+		},
+		"tag-identifier": {
+			"name": "tag.identifier.selector.bview",
+			"match": "\\b([a-zA-Z_][a-zA-Z_:\\-]*)\\b",
+			"captures": {
+				"1": {
+					"name": "tagname.bview"
+				}
+			}
+		},
+		"node-operators": {
+			"match": "\\s*(\\>|\\=)\\s*",
+			"patterns": [
+				{
+					"include": "#subnode-operator"
+				},
+				{
+					"include": "#content-operator"
+				}
+			]
+		},
+		"subnode-operator": {
+			"comment": "Create a subnode",
+			"match": "\\s*\\>\\s*",
+			"name": "subnode.operator.bview"
+		},
+		"content-operator": {
+			"comment": "Create a subnode",
+			"match": "\\s*\\=\\s*",
+			"name": "content.operator.bview"
+		},
+		"function-args": {
+			"begin": "\\(",
+			"end": "\\)",
+			"comment": "function definition params",
+			"name": "node.func.arg.bview",
+			"pattern": [
+				{
+					"include": "#arg-definition-value"
+				}
+			]
+		},
+		"array-args": {
+			"begin": "\\[",
+			"end": "\\]",
+			"name": "node.array.definition.bview",
+			"pattern": [
+				{
+					"include": "#array-key-value"
+				}
+			]
+		},
+		"scope-definition":{
+			"comment": "Mark scope tag definition",
+			"begin":"\\{",
+			"end":"\\}",
+			"patterns": [
+				{"include": "#attrib-list"}
+			]
+		},
+		"attrib-list":{
+			"match":"(\\b@[a-zA-z_][a-zA-z_:\\-]*)+",
+			"name":"attrib.activate.bview",
+			"patterns": [
+				{
+
+				}
+			]
+		}
+	},
+	"scopeName": "source.bview"
+}

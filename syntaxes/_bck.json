@@ -1,0 +1,33 @@
+// {
+		// 	"include": "#tagdefinition"
+		// },
+		// {
+		// 	"include": "#class-identifier"
+		// },
+		// {
+		// 	"include": "#name-identifier"
+		// },
+		// {
+		// 	"include": "#active-attribute"
+		// },
+		// {
+		// 	"include": "#comment"
+		// },
+		// {
+		// 	"include": "#single-line-comment"
+		// },
+		// {
+		// 	"include": "#quote-string"
+		// },
+		// {
+		// 	"include": "#single-quote-string"
+		// },
+		// {
+		// 	"include": "#line-litteral-constant"
+		// },
+		// {
+		// 	"include": "#line-add-node"
+		// },
+		// {
+		// 	"include": "#moustache"
+		// },

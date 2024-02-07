@@ -1,0 +1,55 @@
+{
+  "name": "balafon-bview-file-extesion",
+  "displayName": "BALAFON bview file extesion",
+  "description": "handle bview file on balafon framework",
+  "publisher": "igkdev",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "icon":"./assets/img/main_logo@3x.png",
+  "keywords":[
+    "balafon",
+    "bview"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Other",
+    "Snippets",
+    "Testing" 
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "bview",
+      "aliases": ["BALAFON bview", "bview"],
+      "extensions": [".bview"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "bview",
+      "scopeName": "source.bview",
+      "path": "./syntaxes/bview.tmLanguage.json"
+    }, {
+      "injectTo": [
+        "source.php"
+      ],
+      "scopeName": "inline.balafon",
+      "path":"./syntaxes/bview.inline.php.json",
+      "embeddedLanguages": {
+        "meta.embedded.block.bview":"bview"
+      }
+    }],
+    "themes": [
+      {
+        "label":"Balafon - bview dark theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bview-color-theme.json"
+      },
+      {
+        "label":"Balafon - bview light theme",
+        "uiTheme": "vs",
+        "path": "./themes/bview-light-color-theme.json"
+      }
+    ]
+  }
+}
