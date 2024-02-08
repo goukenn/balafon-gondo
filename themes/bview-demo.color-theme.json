@@ -37,7 +37,7 @@
             }
         } ,
         {
-            "scope": "parameter.attribute.active.demo.bview, conditional.operator.demo.bview, constant.selector.tagname.active.attrib.demo.bview" ,
+            "scope": "parameter.attribute.active.demo.bview, tagname.attribute.active.inline.bview, conditional.operator.demo.bview, constant.selector.tagname.active.attrib.demo.bview" ,
             "settings": {
                 "foreground": "#30d0e2"
             }
@@ -61,9 +61,21 @@
             }
         } ,
         {
-            "scope": "operator, punctuation.start.content.expression.demo.bview, punctuation.operator.demo.bview", 
+            "scope": "operator, punctuation.start.content.expression.demo.bview, punctuation.operator.demo.bview, meta.punctuation.array.definition.bview, meta.punctuation.array.separator.bview", 
             "settings": {
                 "foreground": "#895609"
+            }
+        },
+        {
+            "scope": "constant.number.demo.bview",
+            "settings": {
+                "foreground": "#565bea"
+            }
+        },
+        {
+            "scope": "R:litteral.args.bview",
+            "settings": {
+                "foreground": "#000000"
             }
         } 
     ]

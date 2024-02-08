@@ -28,7 +28,7 @@
     "grammars": [{
       "language": "bview",
       "scopeName": "source.demo.bview",
-      "path": "./syntaxes/bview.demo.tmLanguage.json"
+      "path":"./syntaxes/bview.demo.tmLanguage.json"
     }],
     "themes": [ 
       {
