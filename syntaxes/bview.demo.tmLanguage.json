@@ -7,8 +7,12 @@
             "include": "#comment-block"
         },
         {
+            "include": "#double-quote-with-mustache-string"
+        },
+        {
             "include": "#section-block"
         },
+      
         {
             "include": "#selector-tag"
         }
@@ -16,8 +20,8 @@
     ],
     "repository": {
         "section-block": {
-            "begin": "([^\\{]+)\\s*\\{(?:($|\\s*))",
-            "end": "\\}(\\s*|[^\\}\\-])",
+            "begin": "(^[^\\-\"']+|[^\\{\"]+)\\s*\\{(?:($|\\s*))",
+            "end": "\\}(\\s*|[^\\}\\-\"])",
             "name": "meta.section.expression.demo.bview",
             "beginCaptures": {
                 "1": {
@@ -31,12 +35,12 @@
             "patterns": [
                 {
                     "include": "#comment-block"
+                },  
+                {
+                    "include": "#conditional-expression"
                 },
                 {
                     "include": "#tag-content"
-                },
-                {
-                    "include": "#conditional-expression"
                 },
                 {
                     "include": "#mustache-expression"
@@ -53,9 +57,17 @@
             ]
         },
         "mustache-expression": {
-            "begin": "(^|\\s*)\\{\\{",
-            "end": "\\}\\}",
-            "name": "meta.mustache.expression.demo.bview"
+            "begin": "\\{\\{(?=[^\\{])",
+            "end": "(?<=[^\\}])\\}\\}",
+            "name": "meta.mustache.demo.bview",
+            "beginCaptures":{
+                "0":{"name":"meta.mustache.start.demo.bview"}
+            }, 
+            "endCaptures":{
+                "0":{"name":"meta.mustache.end.demo.bview"}
+            },
+            "contentName":"meta.mustache.expression.demo.bview"
+            
         },
         "comment-block": {
             "name": "comment.block.demo.bview",
@@ -143,7 +155,8 @@
             "patterns": [
                 {
                     "include": "#string-with-mustache"
-                },
+                }
+                ,
                 {
                     "include": "#expression-constant"
                 }
@@ -237,6 +250,7 @@
                     "match": "\\\\."
                 },
                 { "include":"#mustache-expression"}
+                 
             ]
         },
         "single-quote-with-mustache-string": {

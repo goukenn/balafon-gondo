@@ -1,7 +1,7 @@
 {
     "tokenColors":[
         {
-            "scope": "meta.mustache.expression.demo.bview",
+            "scope": "meta.mustache, meta.mustache.expression.demo.bview",
             "settings": {
                 "foreground": "#FF0000"
             }
