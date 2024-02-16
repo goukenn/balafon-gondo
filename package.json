@@ -11,6 +11,10 @@
     "name": "C.A.D. BONDJE DOUE",
     "email": "cbondje@igkdev.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goukenn/balafon-gondo"
+  },
   "main":"./lib/extension",
   "icon":"./assets/img/main_logo@3x.png",
   "keywords":[
