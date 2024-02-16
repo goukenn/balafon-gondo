@@ -1,9 +1,9 @@
 {
   "name": "balafon-gondo",
   "displayName": "BALAFON GONDO",
-  "description": "handle files on balafon framework",
+  "description": "BALAFON framework language support features",
   "publisher": "igkdev",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -16,7 +16,7 @@
     "url": "https://github.com/goukenn/balafon-gondo"
   },
   "main":"./lib/extension",
-  "icon":"./assets/img/main_logo@3x.png",
+  "icon":"main_logo@3x.png",
   "keywords":[
     "balafon",
     "bview"
