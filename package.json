@@ -1,12 +1,17 @@
 {
-  "name": "balafon-bview-file-extesion",
-  "displayName": "BALAFON bview file extesion",
-  "description": "handle bview file on balafon framework",
+  "name": "balafon-gondo",
+  "displayName": "BALAFON GONDO",
+  "description": "handle files on balafon framework",
   "publisher": "igkdev",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.86.0"
   },
+  "author": {
+    "name": "C.A.D. BONDJE DOUE",
+    "email": "cbondje@igkdev.com"
+  },
+  "main":"./lib/extension",
   "icon":"./assets/img/main_logo@3x.png",
   "keywords":[
     "balafon",
@@ -16,7 +21,9 @@
     "Programming Languages",
     "Other",
     "Snippets",
-    "Testing" 
+    "Testing", "Themes" , "Formatters"
+  ],
+  "activationEvents": [ 
   ],
   "contributes": {
     "languages": [{
@@ -24,19 +31,37 @@
       "aliases": ["BALAFON bview", "bview"],
       "extensions": [".bview"],
       "configuration": "./language-configuration.json"
+    },
+    {
+      "id": "bcss",
+      "aliases": ["BALAFON bcss", "bcss"],
+      "extensions": [".bcss"],
+      "configuration": "./bview.language-configuration.json",
+      "icon": {
+        "dark": "./assets/icons/bcss-icon-dark.png",
+        "light": "./assets/icons/bcss-icon-dark.png"
+      }
     }],
     "grammars": [{
       "language": "bview",
-      "scopeName": "source.demo.bview",
-      "path":"./syntaxes/bview.demo.tmLanguage.json"
-    }],
-    "themes": [ 
-      {
-        "path": "./themes/bview-demo.color-theme.json",
-        "uiTheme": "vs-dark",
-        "label": "Demo bview theme dark",
-        "id":"balafon-bview-theme"
-      }
+      "scopeName": "source.bview",
+      "path":"./syntaxes/bview.tmLanguage.json"
+    },
+    {
+      "language": "bcss",
+      "scopeName": "source.bcss",
+      "path":"./syntaxes/bcss.tmLanguage.json"
+    }
     ]
+  },
+
+  "devDependencies": {
+    "@types/vscode": "^1.86.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
   }
 }

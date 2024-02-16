@@ -1,73 +1,73 @@
 {
     "tokenColors":[
         {
-            "scope": "meta.mustache, meta.mustache.expression.demo.bview",
+            "scope": "meta.mustache, meta.mustache.expression.bview",
             "settings": {
                 "foreground": "#FF0000"
             }
         },
         {
-            "scope": "constant.selector.tagname.demo.bview",
+            "scope": "constant.selector.tagname.bview",
             "settings": {
                 "foreground": "#17a346"
             }
         },
         {
-            "scope": "constant.selector.tagname.id.demo.bview" ,
+            "scope": "constant.selector.tagname.id.bview" ,
             "settings": {
                 "foreground": "#1782a3"
             }
         }, 
         {
-            "scope": "constant.selector.tagname.class.demo.bview" ,
+            "scope": "constant.selector.tagname.class.bview" ,
             "settings": {
                 "foreground": "#e45015"
             }
         }, 
         {
-            "scope": "constant.selector.tagname.name.demo.bview" ,
+            "scope": "constant.selector.tagname.name.bview" ,
             "settings": {
                 "foreground": "#2a3575"
             }
         } ,
         {
-            "scope": "comment.block.demo.bview" ,
+            "scope": "comment.block.bview" ,
             "settings": {
                 "foreground": "#2a7530"
             }
         } ,
         {
-            "scope": "parameter.attribute.active.demo.bview, tagname.attribute.active.inline.bview, conditional.operator.demo.bview, constant.selector.tagname.active.attrib.demo.bview" ,
+            "scope": "parameter.attribute.active.bview, tagname.attribute.active.inline.bview, conditional.operator.bview, constant.selector.tagname.active.attrib.bview" ,
             "settings": {
                 "foreground": "#30d0e2"
             }
         },
         {
-            "scope": "conditional.expression.demo.bview", 
+            "scope": "conditional.expression.bview", 
             "settings": {
                 "foreground": "#cae230"
             }
         },
         {
-            "scope": "string.single.quoted.demo.bview, string.quoted.demo.bview, string.quoted.with.mustache.demo.bview",
+            "scope": "string.single.quoted.bview, string.quoted.bview, string.quoted.with.mustache.bview",
             "settings": {
                 "foreground": "#822701"
             }
         },
         {
-            "scope": "constant.litteral.expression.demo.bview, meta.tag.content.expression.demo.bview", 
+            "scope": "constant.litteral.expression.bview", 
             "settings": {
                 "foreground": "#b51eb5"
             }
         } ,
         {
-            "scope": "operator, punctuation.start.content.expression.demo.bview, punctuation.operator.demo.bview, meta.punctuation.array.definition.bview, meta.punctuation.array.separator.bview", 
+            "scope": "operator, punctuation.start.content.expression.bview, punctuation.operator.bview, meta.punctuation.array.definition.bview, meta.punctuation.array.separator.bview", 
             "settings": {
                 "foreground": "#895609"
             }
         },
         {
-            "scope": "constant.number.demo.bview",
+            "scope": "constant.number.bview",
             "settings": {
                 "foreground": "#565bea"
             }
@@ -76,6 +76,12 @@
             "scope": "R:litteral.args.bview",
             "settings": {
                 "foreground": "#000000"
+            }
+        },  
+        {
+            "scope": "func.name.bview",
+            "settings": {
+                "foreground": "#4a8761"
             }
         } 
     ]
