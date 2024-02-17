@@ -61,7 +61,7 @@
         {
             "include": "#root-property"
         }
-    ],
+    ], 
     "repository": {
         "root-property": {
             "comment": "no.name property detection",

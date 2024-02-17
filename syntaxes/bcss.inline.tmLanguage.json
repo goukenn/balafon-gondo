@@ -1,0 +1,32 @@
+{
+    "scopeName":"inline.bcss",
+    "injectionSelector":"L:source.php",
+    "patterns":[ 
+        {
+            "include":"#bcss-here-doc"
+        }
+    ],
+    "repository":{
+        "bcss-here-doc":{
+            "begin":"(?i)\\<\\<\\<('|\")\\b(bcss)\\b('|\")$",
+            "end":"^\\2((\\s*;|\\))|$)",
+            "beginCaptures":{
+                "0":{ 
+                    "name":"string"
+                },
+                "2":{
+                    "name":"keyword.operator.nowdoc.php"
+                }
+            },
+            "endCaptures":{
+                "0":{"name":"keyword.operator.nowdoc.php"}
+            },
+            "name":"mark.embeded.bcss",
+            "patterns":[
+                {
+                    "include":"source.bcss"
+                }
+            ]
+        }
+    }
+}

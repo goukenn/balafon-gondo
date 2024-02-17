@@ -1,0 +1,94 @@
+{
+    "MarkLineFeed":{
+		"prefix":"@fileline",
+		"body":[
+			"__FILE__.\":\".__LINE__ $1"
+		]
+	},
+	"FileMethod":{
+		"prefix":"@filemethod",
+		"body":[
+			"__FILE__.\":\".__METHODS__ $1"
+		]
+	},
+	"FileFunction":{
+		"prefix":"@filemethod",
+		"body":[
+			"__FILE__.\":\".__FUNCTION__ $1"
+		]
+	},
+	"mainview":{
+		"prefix":"@igk_mainlayout",
+		"body":[
+			"//#{{% @MainLayout() %}}"
+		]
+	},
+	"MarkLineFeedE":{
+		"prefix":"@igk_wln_e",
+		"body":[
+			"igk_wlne(__FILE__.\":\".__LINE__, $1);"
+		]
+	},
+	"Include IGKTrace":{
+		"prefix": "@igk_trace",
+		"body": [
+			"require_once(\"/Volumes/Data/wwwroot/core/Lib/igk/igk_framework.php\");",
+			"igk_trace();",
+			"die('tracing...');"
+		]		
+	},
+	"Stop time":{
+		"prefix": "@igk_stop",
+		"body":[
+			"igk_wln_e(\"time: \".IGKServer::RequestTime());",
+			"$1"
+		]
+
+	},
+	"author_info":{
+		"prefix": "@igk_author",
+		"body":[
+			"// @author: C.A.D. BONDJE DOUE",
+			"// @filename: $TM_FILENAME",
+			"// @date: $CURRENT_YEAR$CURRENT_MONTH$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+			"// @desc: $1",
+			"$2"
+		]
+	},
+	"comment_info":{
+		"prefix": "@igk_comment",
+		"body":[
+			"// + | --------------------------------------------------------------------",
+			"// + | $1",
+			"// + |",
+			"$2"
+		]
+	},
+	"gen_class":{
+		"prefix": "@igk_class",
+		"body":[
+			"",
+			"class $TM_FILENAME_BASE{",
+			"\t$1",
+			"}"
+		]
+	},
+	"igk_array_prop":{
+		"prefix": "@igk_array_prop",
+		"body":[
+			"/**",
+			"* get $1",
+			"*/",
+			"public function get$1(){",
+				"    return \\$this[\"$2\"];",
+			"}",
+			"/**",
+			"* set $1",
+			"*/",
+			"public function set$1(\\$v){",
+				"    \\$this[\"$2\"] = \\$v;",
+				"    return \\$this;",
+			"}",
+		]
+	}
+}

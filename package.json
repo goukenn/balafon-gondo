@@ -3,7 +3,7 @@
   "displayName": "BALAFON GONDO",
   "description": "BALAFON framework language support features",
   "publisher": "igkdev",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -15,57 +15,301 @@
     "type": "git",
     "url": "https://github.com/goukenn/balafon-gondo"
   },
-  "main":"./lib/extension",
-  "icon":"main_logo@3x.png",
-  "keywords":[
+  "main": "./lib/extension",
+  "icon": "main_logo@3x.png",
+  "keywords": [
     "balafon",
     "bview"
   ],
   "categories": [
     "Programming Languages",
-    "Other",
-    "Snippets",
-    "Testing", "Themes" , "Formatters"
+    "Snippets", "Formatters"
   ],
-  "activationEvents": [ 
+  "activationEvents": [
+    "workspaceContains:**/balafon",
+    "workspaceContains:**/balafon.config.xml"
   ],
   "contributes": {
-    "languages": [{
-      "id": "bview",
-      "aliases": ["BALAFON bview", "bview"],
-      "extensions": [".bview"],
-      "configuration": "./language-configuration.json"
-    },
-    {
-      "id": "bcss",
-      "aliases": ["BALAFON bcss", "bcss"],
-      "extensions": [".bcss"],
-      "configuration": "./bview.language-configuration.json",
-      "icon": {
-        "dark": "./assets/icons/bcss-icon-dark.png",
-        "light": "./assets/icons/bcss-icon-dark.png"
+    "commands": [
+      {
+        "title": "init",
+        "command": "balafon.init",
+        "category": "BALAFON"
+      },
+      {
+        "title": "exec command",
+        "category": "BALAFON",
+        "command": "balafon.exec_command"
+      },
+      {
+        "title": "get module",
+        "command": "balafon.get_module",
+        "category": "BALAFON"
+      },
+      {
+        "title": "update node module",
+        "command": "balafon.update_node_module",
+        "category": "BALAFON"
+      },
+      {
+        "title":"update-file",
+        "command": "balafon.update_file",
+        "category": "BALAFON"
+      },
+      {
+        "title":"New .bview file",
+        "command": "balafon.new_bview",
+        "category": "BALAFON"
+      },
+      {
+        "title":"New .bcss file",
+        "command": "balafon.new_bcss",
+        "category": "BALAFON"
+      },
+      {
+        "title":"New Project",
+        "command": "balafon.new_project",
+        "category": "BALAFON"
+      },
+      {
+        "title":"New Module",
+        "command": "balafon.new_module",
+        "category": "BALAFON"
       }
-    }],
-    "grammars": [{
-      "language": "bview",
-      "scopeName": "source.bview",
-      "path":"./syntaxes/bview.tmLanguage.json"
+    ],
+    "menus":{
+     "editor/title": [
+      {
+        "command": "balafon.update_file",
+        "group": "balafon"
+      }
+     ] 
     },
-    {
-      "language": "bcss",
-      "scopeName": "source.bcss",
-      "path":"./syntaxes/bcss.tmLanguage.json"
+    "languages": [
+      {
+        "id": "bview",
+        "aliases": [
+          "BALAFON bview",
+          "bview"
+        ],
+        "extensions": [
+          ".bview"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "bcss",
+        "aliases": [
+          "BALAFON bcss",
+          "bcss"
+        ],
+        "extensions": [
+          ".bcss"
+        ],
+        "configuration": "./bview.language-configuration.json",
+        "firstLine": "^@\\bdef\\b\\s*\\{",
+        "icon": {
+          "dark": "./assets/icons/bcss-icon-dark.png",
+          "light": "./assets/icons/bcss-icon-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bview",
+        "scopeName": "source.bview",
+        "path": "./syntaxes/bview.tmLanguage.json"
+      },
+      {
+        "language": "bcss",
+        "scopeName": "source.bcss",
+        "path": "./syntaxes/bcss.tmLanguage.json"
+      },
+      {
+        "injectTo": [
+          "text.html.php"
+        ],
+        "scopeName": "inline.bview",
+        "path": "./syntaxes/bview.inline.tmLanguage.json"
+      },
+      {
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "scopeName": "inline.markdown",
+        "path": "./syntaxes/md.inline.tmLanguage.json"
+      },
+      {
+        "injectTo": [
+          "text.html.php"
+        ],
+        "scopeName": "inline.bcss",
+        "path": "./syntaxes/bcss.inline.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "php",
+        "path": "./snippets/php.code-snippets"
+      }
+    ],
+    "configurationDefaults": {
+      "[bview]": {
+        "editor.colorDecorators": true,
+        "editor.lineNumbers": "off"
+      },
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": [
+              "source.bcss",
+              "source.bview"
+            ],
+            "settings": {
+              "foreground": "#2d7b8e"
+            }
+          },
+          {
+            "scope": [
+              "meta.global.directive"
+            ],
+            "settings": {
+              "foreground": "#C586C0"
+            }
+          },
+          {
+            "scope": [
+              "constant.global.ref",
+              "directive.name"
+            ],
+            "settings": {
+              "foreground": "#2c99e2"
+            }
+          },
+          {
+            "scope": [
+              "operator.property",
+              "property.css",
+              "punctuation.operator",
+              "directive.value"
+            ],
+            "settings": {
+              "foreground": "#8e792d"
+            }
+          },
+          {
+            "scope": [
+              "constant"
+            ],
+            "settings": {
+              "foreground": "#14c6c9"
+            }
+          },
+          {
+            "scope": [
+              "constant.color"
+            ],
+            "settings": {
+              "foreground": "#c94e14"
+            }
+          },
+          {
+            "scope": [
+              "constant.counter.style.property",
+              "constant.property.speudo.class",
+              "constant.litteral.expression.bview"
+            ],
+            "settings": {
+              "foreground": "#c94e14"
+            }
+          },
+          {
+            "scope": [
+              "meta.block.capture.bcss native.css.type.pseudo.class"
+            ],
+            "settings": {
+              "foreground": "#147ec9"
+            }
+          },
+          {
+            "scope": [
+              "constant.url",
+              "punctuation.separator"
+            ],
+            "settings": {
+              "foreground": "#ba14c9"
+            }
+          },
+          {
+            "scope": [
+              "native.css.type.pseudo.class"
+            ],
+            "settings": {
+              "foreground": "#c0c914"
+            }
+          },
+          {
+            "scope": [
+              "constant.property.condition.name"
+            ],
+            "settings": {
+              "foreground": "#3e72cb"
+            }
+          },
+          {
+            "scope": [
+              "native.css.function.name",
+              "punctuation.selector",
+              "operator.append.tagname.bview"
+            ],
+            "settings": {
+              "foreground": "#DCDCAA"
+            }
+          },
+          {
+            "scope": [
+              "native.css.type",
+              "constant.selector.tagname.class.bview"
+            ],
+            "settings": {
+              "foreground": "#b90e94"
+            }
+          },
+          {
+            "scope":["parameter.attribute.active"],
+            "settings": {
+              "foreground": "#3bc7f1"
+            }
+          },
+          {
+            "scope":["constant.selector.tagname.id"],
+            "settings": {
+              "foreground": "#c9c915"
+            }
+          },
+          {
+            "scope": [
+              "native.css.type.id",
+              "constant.selector.tagname.name"
+            ],
+            "settings": {
+              "foreground": "#b90e0e"
+            }
+          }
+        ]
+      }
     }
-    ]
+    
   },
-
   "devDependencies": {
-    "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
+    "@types/vscode": "^1.86.0",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.4",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
   }
 }

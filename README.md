@@ -1,8 +1,11 @@
-# balafon-bview-file-extesion README
+# BALAFON GONDO
 
-This is the README  "balafon-bview-file-extesion"
-
+use with BALAFON (PHP Web framework) to build and deploy rich web project.
+- author: [C.A.D BONDJE DOUE](https://bondje.igkdev.com)
 ## Features
+
+- .bview file highlight syntax support 
+- .bcss file highlight syntax support 
 
 ## Requirements
 
@@ -13,10 +16,4 @@ This is the README  "balafon-bview-file-extesion"
 ## Release Notes
  
 
-### 1.0.0
- 
-
-### 1.0.1
- 
-
-### 1.1.0
+### 0.0.2 
